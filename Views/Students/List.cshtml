@@ -1,0 +1,28 @@
+@model List<CrudApp.Models.Entities.Student>
+
+<h1>Student List</h1>
+<a class="btn btn-primary" asp-controller="Students" asp-action="Add"> Add Student</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Subscribed</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var students in Model)
+        {
+            <tr>
+                <td>@students.Id</td>
+                <td>@students.Name</td>
+                <td>@students.Email</td>
+                <td>@students.Phone</td>
+                <td><a asp-controller="Students" asp-action="Edit" asp-route-id="@students.Id" class="btn btn-success">Edit</a></td>
+    
+            </tr>
+        }
+    </tbody>
+</table>
